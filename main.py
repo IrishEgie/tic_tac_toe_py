@@ -1,6 +1,6 @@
 from art import title
 from utils import clear_console
-from game import pvp_ttt
+from game import pvp_ttt, pve_ttt
 from menu import display_menu
 
 def main():
@@ -14,7 +14,8 @@ def main():
         if choice == '1':
             pvp_ttt()  # This will show the game state
         elif choice == '2':
-            print("Playing against the bot is not implemented yet.")
+            pve_ttt()
+            # print("Playing against the bot is not implemented yet.")
         elif choice == '3':
             print("Thanks for playing!")
             break  # Exit the loop and quit the program

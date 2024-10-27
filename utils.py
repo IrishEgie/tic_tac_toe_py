@@ -1,7 +1,6 @@
 import os
-import art
+from art import title
 
-title_art = art.title
 
 def validate_move(move, board):
     if move not in board:
@@ -21,14 +20,14 @@ def clear_console():
 
 def print_board(board):
     clear_console()  # Clear the console before printing the board
-    title_lines = art.title.strip().splitlines()
+    title_lines = title.strip().splitlines()
     # Print title and grid in one row
     print(f"{title_lines[0]}  1 | 2 | 3")
     print(f"{title_lines[1]} -----------")
     print(f"{title_lines[2]} 4 | 5 | 6")
     print(f"{title_lines[3]} -----------")
     print(f"{title_lines[4]} 7 | 8 | 9")
-    print("\nRules: Players take turns to place their marks in the numbered spaces. First to align three marks wins!")
+    print("\nRules: Players take turns to place their marks in the numbered spaces. First to align three marks wins! Press 'q' to quit")
     print()
     # Display the current state of the board
     for i in range(1, 10):
