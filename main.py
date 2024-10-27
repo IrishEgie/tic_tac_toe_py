@@ -3,24 +3,25 @@ import os
 
 title_art = art.title
 
-print(title_art)
+
 
 def initialize_board():
-    return {f"{i}{j}": ' ' for i in range(3) for j in range(3)}
+    return {str(i): ' ' for i in range(1, 10)}  # Initialize with keys from 1 to 9
 
 def clear_console():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def print_board(board):
     clear_console()  # Clear the console before printing the board
-    print("  A B C")
-    print("0 1 | 2 | 3")
-    print("  -----------")
-    print("1 4 | 5 | 6")
-    print("  -----------")
-    print("2 7 | 8 | 9")
+    title_lines = title_art.strip().splitlines()
+    # Print title and grid in one row
+    print(f"{title_lines[0]}  1 | 2 | 3")
+    print(f"{title_lines[1]} -----------")
+    print(f"{title_lines[2]} 4 | 5 | 6")
+    print(f"{title_lines[3]} -----------")
+    print(f"{title_lines[4]} 7 | 8 | 9")
+    print("\nRules: Players take turns to place their marks in the numbered spaces. First to align three marks wins!")
     print()
-    
     # Display the current state of the board
     for i in range(1, 10):
         value = board[str(i)]
@@ -29,7 +30,8 @@ def print_board(board):
         print(f"  {value}", end=" |" if i % 3 != 0 else "")
         if i % 3 == 0:
             print()  # Move to the next line
-
+    
+    
 def check_winner(board):
     # Define winning combinations using 1-9
     winning_combinations = [
