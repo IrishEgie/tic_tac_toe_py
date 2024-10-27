@@ -1,15 +1,14 @@
 import art
-import os
-from utils import initialize_board, clear_console, print_board, check_winner
+from utils import initialize_board, print_board, check_winner, display_invalid_input
 
 title_art = art.title
 
 def validate_move(move, board):
     if move not in board:
-        print("Input not recognized. Please enter a number from 1 to 9.")
+        display_invalid_input("Input not recognized. Please enter a number from 1 to 9.")
         return False
     if board[move] != ' ':
-        print("That space is already occupied. Try another move.")
+        display_invalid_input("That space is already occupied. Try another move.")
         return False
     return True
 

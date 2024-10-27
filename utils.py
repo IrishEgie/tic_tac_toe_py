@@ -1,5 +1,5 @@
 import os
-
+import art
 def initialize_board():
     return {str(i): ' ' for i in range(1, 10)}  # Initialize with keys from 1 to 9
 
@@ -42,3 +42,6 @@ def check_winner(board):
         if board[combo[0]] == board[combo[1]] == board[combo[2]] != ' ':
             return board[combo[0]]
     return None
+
+def display_invalid_input(message):
+    print(message)
