@@ -1,5 +1,18 @@
 import os
 import art
+
+title_art = art.title
+
+def validate_move(move, board):
+    if move not in board:
+        display_invalid_input("Input not recognized. Please enter a number from 1 to 9.")
+        return False
+    if board[move] != ' ':
+        display_invalid_input("That space is already occupied. Try another move.")
+        return False
+    return True
+
+
 def initialize_board():
     return {str(i): ' ' for i in range(1, 10)}  # Initialize with keys from 1 to 9
 
