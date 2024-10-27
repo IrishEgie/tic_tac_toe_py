@@ -1,3 +1,4 @@
+import time
 from utils import initialize_board, print_board, check_winner, validate_move, display_invalid_input
 import random
 from art import title
@@ -54,9 +55,20 @@ def pve_ttt():
             board[move] = current_player
         else:
             # Computer's turn
+            print("Computer is making its move...")
+            time.sleep(1)  # Add a delay for the computer's move
+            
             available_moves = [k for k, v in board.items() if v == ' ']
             move = random.choice(available_moves)  # Choose a random available move
-            print(f"Computer chooses: {move}")
+            
+            # Loading effect
+            print("Loading", end='', flush=True)
+            for _ in range(3):
+                print('.', end='', flush=True)
+                time.sleep(0.5)
+            print('\r', end='')  # Clear the line
+            time.sleep(0.5)
+            print(f"\nComputer chooses: {move}")
             board[move] = current_player
         
         winner = check_winner(board)
